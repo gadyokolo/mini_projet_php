@@ -1,9 +1,6 @@
 <?php
 declare(strict_types=1);
 
-/* =========================
-   CONFIG + FONCTIONS
-========================= */
 const DATA_FILE = __DIR__ . '/data.json';
 
 function h(string $v): string {
@@ -94,17 +91,12 @@ function badge_status(string $s): string {
   };
 }
 
-/* =========================
-   LOGIQUE (CRUD)
-========================= */
 $tasks = read_tasks();
 $error = '';
 $success = '';
 
-// ✅ Nom du fichier courant (peu importe comment tu l'appelles)
 $SELF = basename($_SERVER['PHP_SELF']);
 
-// Actions GET : toggle / delete
 $action = $_GET['action'] ?? '';
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
@@ -128,7 +120,6 @@ if ($action === 'delete' && $id > 0) {
   exit;
 }
 
-// Ajout POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $titre = trim($_POST['titre'] ?? '');
   $description = trim($_POST['description'] ?? '');
@@ -155,7 +146,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
-// Filtres GET
 $q = trim($_GET['q'] ?? '');
 $f_statut = trim($_GET['statut'] ?? '');
 $f_priorite = trim($_GET['priorite'] ?? '');
@@ -173,7 +163,6 @@ $filtered = array_values(array_filter($tasks, function($t) use ($q, $f_statut, $
   return true;
 }));
 
-// Stats
 $total = count($tasks);
 $done = 0;
 $overdue = 0;
@@ -212,7 +201,6 @@ $percent = ($total > 0) ? round(($done / $total) * 100, 1) : 0.0;
   <?php endif; ?>
 
   <div class="row g-3 mb-3">
-    <!-- AJOUT -->
     <div class="col-lg-7">
       <div class="card shadow-sm">
         <div class="card-header bg-primary text-white fw-bold">
@@ -253,7 +241,6 @@ $percent = ($total > 0) ? round(($done / $total) * 100, 1) : 0.0;
       </div>
     </div>
 
-    <!-- STATS -->
     <div class="col-lg-5">
       <div class="card shadow-sm h-100">
         <div class="card-header bg-dark text-white fw-bold">
@@ -274,7 +261,6 @@ $percent = ($total > 0) ? round(($done / $total) * 100, 1) : 0.0;
     </div>
   </div>
 
-  <!-- FILTRES -->
   <div class="card shadow-sm mb-3">
     <div class="card-header fw-bold">
       Recherche & filtres
@@ -311,7 +297,6 @@ $percent = ($total > 0) ? round(($done / $total) * 100, 1) : 0.0;
     </div>
   </div>
 
-  <!-- TABLE -->
   <div class="card shadow-sm">
     <div class="card-header bg-white d-flex flex-wrap justify-content-between align-items-center gap-2">
       <div class="fw-bold">Liste des tâches</div>
