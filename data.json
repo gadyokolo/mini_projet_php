@@ -1,0 +1,38 @@
+[
+    {
+        "id": 2,
+        "titre": "Réviser le cours de PHP",
+        "description": "mettre en pratique toute les consignes données par la prof",
+        "priorité": "moyenne",
+        "statut": "à faire",
+        "date_creation": "2026-02-05",
+        "date_limite": "2026-02-04"
+    },
+    {
+        "id": 3,
+        "titre": "reveil matinal",
+        "description": "se lever chaque matin tôt pour aller a l'ecole",
+        "priorité": "moyenne",
+        "statut": "terminée",
+        "date_creation": "2026-02-05",
+        "date_limite": "2026-02-06"
+    },
+    {
+        "id": 4,
+        "titre": "MY SQL",
+        "description": "acquérir des compétences dans ce domaine",
+        "priorité": "basse",
+        "statut": "en cours",
+        "date_creation": "2026-02-05",
+        "date_limite": "2026-02-10"
+    },
+    {
+        "id": 5,
+        "titre": "Préparer le mini-projet PHP",
+        "description": "préparer le projet afin de satisfaire aux attentes du prof",
+        "priorité": "haute",
+        "statut": "terminée",
+        "date_creation": "2026-02-05",
+        "date_limite": "2026-02-06"
+    }
+]
