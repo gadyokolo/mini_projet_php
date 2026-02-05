@@ -1,5 +1,14 @@
 [
     {
+        "id": 1,
+        "titre": "Faire les exercices de PHP",
+        "description": "faire les exercices pour mieux comprendre le cours",
+        "priorité": "haute",
+        "statut": "terminée",
+        "date_creation": "2026-02-05",
+        "date_limite": "2026-02-07"
+    },
+    {
         "id": 2,
         "titre": "Réviser le cours de PHP",
         "description": "mettre en pratique toute les consignes données par la prof",
